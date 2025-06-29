@@ -1,0 +1,23 @@
+[project]
+name = "agencias"
+version = "0.1.0"
+description = ""
+authors = [
+    {name = "fabricio segundo"}
+]
+license = {text = "mit"}
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "selenium (>=4.33.0,<5.0.0)",
+    "webdriver-manager (>=4.0.2,<5.0.0)",
+    "pandas (>=2.3.0,<3.0.0)",
+    "rich (>=14.0.0,<15.0.0)",
+    "tqdm (>=4.67.1,<5.0.0)",
+    "numpy (>=2.3.1,<3.0.0)"
+]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
