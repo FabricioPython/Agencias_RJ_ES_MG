@@ -73,7 +73,6 @@ with Scraping(url=url) as driver:
                         array_1x6 = np.array(ax)
                         geral.append(pd.DataFrame([array_1x6], columns=colunas))
             print(f'\n\n: vez: {i}')
-
     finally:
         driver.quit()
 
@@ -81,5 +80,3 @@ with Scraping(url=url) as driver:
 data = pd.concat(geral)
 
 data.to_csv('Agencias_Estado_MG.csv')
-
-
