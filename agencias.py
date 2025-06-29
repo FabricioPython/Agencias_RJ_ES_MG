@@ -15,7 +15,7 @@ url = "https://www.caixa.gov.br/atendimento/Paginas/encontre-a-caixa.aspx"
 
 
 with Scraping(url=url) as driver:
-
+    
     try:
         # submit cookie
         driver.find_element(By.ID, 'adopt-accept-all-button').click()
@@ -31,7 +31,7 @@ with Scraping(url=url) as driver:
         uf = driver.find_element(By.ID, 'ctl00_ctl61_g_7fcd6a4b_5583_4b25_b2c4_004b6fef4036_ddlUf')
         regiao = Select(uf)
         # RJ = Rio de Janeiro
-        regiao.select_by_value("RJ")
+        regiao.select_by_value("MG")
 
         time.sleep(3)
         # Numero de cidades do rio de janeiro
@@ -80,6 +80,6 @@ with Scraping(url=url) as driver:
 
 data = pd.concat(geral)
 
-data.to_csv('Agencias_Estado_RJ.csv')
+data.to_csv('Agencias_Estado_MG.csv')
 
 

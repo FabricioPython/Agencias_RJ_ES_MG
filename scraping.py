@@ -16,12 +16,15 @@ class Scraping:
         self.options = chrome_options = Options()
         self.options.add_argument("--headless=new")
         self.options.add_argument("--disable-gpu")
+        self.options.timeouts = {'script':5, 'implicit':7}
+        
+        
         
         
     def __enter__(self):
         self.service = Service(ChromeDriverManager().install())
         self.scraping = webdriver.Chrome(service=self.service, options=self.options)
-        self.scraping.implicitly_wait(3)
+        self.scraping.implicitly_wait(7)
         self.scraping.get(self.url)
         return self.scraping
 
@@ -34,6 +37,9 @@ class Scraping:
 
 
 
-#with Scraping(url='https://pleno.news/') as driver:
-    #print('Executrabndoo...\n\n\n')
-    #print(driver.title)
+'''with Scraping(url='sua url') as driver:
+    # identificar
+    # selecionar
+    # tratar
+    ...'''
+    
