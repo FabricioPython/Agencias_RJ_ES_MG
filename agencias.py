@@ -18,7 +18,8 @@ with Scraping(url=url) as driver:
     
     try:
         # submit cookie
-        driver.find_element(By.ID, 'adopt-accept-all-button').click()
+        driver.find_element(By.ID, 
+                            'adopt-accept-all-button').click()
 
         # Primeiro cammpo de selecao: Tipo de Atendimentos
         classe_atendimento = driver.find_element(By.CLASS_NAME, 'select-d')
@@ -28,26 +29,30 @@ with Scraping(url=url) as driver:
 
         time.sleep(3)
         # Segundo campo: Unidade Federativa - UF
-        uf = driver.find_element(By.ID, 'ctl00_ctl61_g_7fcd6a4b_5583_4b25_b2c4_004b6fef4036_ddlUf')
+        uf = driver.find_element(By.ID, 
+                                 'ctl00_ctl61_g_7fcd6a4b_5583_4b25_b2c4_004b6fef4036_ddlUf')
         regiao = Select(uf)
-        # RJ = Rio de Janeiro
+        # UF = Estado Selecionado
         regiao.select_by_value("MG")
 
         time.sleep(3)
-        # Numero de cidades do rio de janeiro
-        class_cont = driver.find_element(By.ID, 'ctl00_ctl61_g_7fcd6a4b_5583_4b25_b2c4_004b6fef4036_ddlCidade')
-        # lista de elementos: cidades do rio de janeiro
+        # Numero de cidades do estado selecionado
+        class_cont = driver.find_element(By.ID, 
+                                         'ctl00_ctl61_g_7fcd6a4b_5583_4b25_b2c4_004b6fef4036_ddlCidade')
+        # lista de elementos: cidades do estado selecionado
         total_agencias = len(Select(class_cont).options)
         
 
         for i, item in enumerate(range(total_agencias)):
             #print(agencias.options[item].text)
-            municipio = driver.find_element(By.ID, 'ctl00_ctl61_g_7fcd6a4b_5583_4b25_b2c4_004b6fef4036_ddlCidade')
+            municipio = driver.find_element(By.ID, 
+                                            'ctl00_ctl61_g_7fcd6a4b_5583_4b25_b2c4_004b6fef4036_ddlCidade')
             agencias = Select(municipio)
 
             # botão de pesquisar
             time.sleep(3)
-            btn = driver.find_element(By.ID, 'ctl00_ctl61_g_7fcd6a4b_5583_4b25_b2c4_004b6fef4036_btnBuscar')
+            btn = driver.find_element(By.ID, 
+                                      'ctl00_ctl61_g_7fcd6a4b_5583_4b25_b2c4_004b6fef4036_btnBuscar')
 
             # Seleciona um municipio e pesquisa
             agencias.options[item].click()
