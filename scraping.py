@@ -15,12 +15,9 @@ class Scraping:
         self.url = url
         self.options = chrome_options = Options()
 
-        self.options.add_argument(
-            "--headless=new"
-            )
+        self.options.add_argument("--headless=new")
         
-        self.options.add_argument(
-            "--disable-gpu")
+        self.options.add_argument("--disable-gpu")
         #self.options.timeouts = {'script':3, 'implicit':3}
         
     def __enter__(self):
